@@ -1,6 +1,5 @@
 #include <iostream>
 #include <conio.h>
-#include <string>
 
 using namespace std;
 
@@ -13,7 +12,10 @@ using namespace std;
 int player_pos_x = 0;
 int player_pos_y = 0;
 
-void input_key(){
+int map_x[] = {};
+int map_y[] = {};
+
+void input_key(){ //Movimentação do player
     
     char key = getch();
     int value = key;
@@ -24,7 +26,7 @@ void input_key(){
             
             case KEY_UP:
                 player_pos_y += 1;
-                cout << "norte - " << "(" << player_pos_x << "," << player_pos_y << ")" << "\n";
+                cout << "norte - "     << "(" << player_pos_x << "," << player_pos_y << ")" << "\n";
                 break;
                 
             case KEY_DOWN:
@@ -45,9 +47,19 @@ void input_key(){
     }
 }
 
+int map(int s){ //Cria o mapa do jogo
+    int i;
+    for(i = 0;i < s;i++){
+        map_x[i] = i;
+        map_y[i] = i;
+    }
+    return 0;
+}
+
 int main(){
-    input_key();
+    map(50);
     
+    input_key();
     system("pause");
     return 0;
 }
